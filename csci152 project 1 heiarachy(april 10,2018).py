@@ -1,6 +1,7 @@
 #Kevin Hinojosa Project #1 Heirachy Project
 #Csci 152
-#This is written in Python
+#This is written in Python 3.5 ie. use IDLE 3.5 
+#ATOM user please press ctrl+shift+b to run
 import time #time.asctime( time.localtime(time.time()))
 
 #This project create a heirachy(tree) of organizations. Organizationscan hold organizations or students
@@ -22,7 +23,7 @@ class Student:
         self.email = first +'-'+ last+ '@FresnoState.com'
         self.message= message
         self.parentOrganization= parentOrganization  #is the index of the parent ordanization. Use orgList[parentOrganization].name to see parent Org name
-        
+
     def fullName(self):
         return'{} {}'.format(self.first, self.last)
 
@@ -117,7 +118,7 @@ def deleteStudent(x):
                 index=index+1
         if(errorBool):
             print("%s student does not exist, Try again.\n"%(deleteThis)) #error message to try again
-    
+
 
 
 #prints every student and their data,
@@ -134,7 +135,7 @@ def displayStudents(x):
 #Note student parent is saved as Int and then set to string None
 def unsubscribe(x):
     errorBool= True
-  
+
     while(errorBool):
         index=0
         unsubThis= input("Which User wouldyou like to unsubscribe?")
@@ -170,7 +171,7 @@ def unsubscribe(x):
 #                index=index+1
 #        if(errorBool):
 #            print("Try Again, This user %s or this organization [%s] does not exist.")
-            
+
 #This functions moves us into the the organization we would like to be in
 #Parameter x is the organization list
 #This also returns the new correct parentOrganization after switching to the new organization
@@ -197,7 +198,7 @@ def cd(x):
     return level
 
 
-#notify sends an email to students    
+#notify sends an email to students
 #Parameter x is a list of students, y is the parent folder
 #this sends message only to the students(aka children) of the current respective organiztion
 def notify(x,y):
@@ -242,7 +243,7 @@ def main():
             print("we entered Make Organization")
             makeOrganization(orgList,currentOrgIndex, parentIndex)
             displayOrg(orgList)
-            
+
         elif (option=="create"or option=="2"):
             student1=createStudent(parentIndex)
             addToList(student1, list1)
@@ -258,7 +259,7 @@ def main():
             parentIndex=cd(orgList)
             print("Test currentOrg is now %s" %(orgList[currentOrgIndex].name))
             print("Test parentIndex is now %s" %(orgList[parentIndex].name))
-            
+
         elif (option=="delUser" or option=="5"):
             deleteStudent(list1)
 
@@ -273,7 +274,7 @@ def main():
             displayOrg(orgList)
             displayStudents(list1)
             print("This is everything created thus far")
-            
+
         else:
             print("Invalid, enter number or word i.e. '1','2','create' ")
 
